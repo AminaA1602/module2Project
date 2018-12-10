@@ -7,15 +7,15 @@ Created on Thu Dec  6 15:11:42 2018
 
 class Universe ():
     
-    def __init__(self,name,time=0,age=0):
+    def __init__(self,name,time,age):
         #This class contains 3 objects'
         self.name = name
         self.age = age
-        self.time = time 
+        self.time = int(time) 
 
 class Galaxy (Universe):
-    def __init__(self,name,time=0,age=0,planetNumber=0):
-        Universe.__init__(self,name,time=0,age=0)
+    def __init__(self,name,time,age,planetNumber=0):
+        Universe.__init__(self,name,time,age)
         self.planetNumber = planetNumber
         
         
@@ -24,8 +24,8 @@ class Galaxy (Universe):
         print('All calls are monitored to improve customer service')
         
         
-class destination(Galaxy):
     def flying(self):
+        print(self.time)
         if 0 < self.time <= 10:
             print("Off to Mars you shall go!")
             print('Be aware that this planet disappeared over the course of hundreds of millions of years')
@@ -82,7 +82,6 @@ class destination(Galaxy):
             print("Don\'t give up my little star traveller, we haven\'t made any cuts to this service just yet")
             
         else: 
- 
             print("invalid value. Please ensure you enter a number above zero")
 
 print('State your name earthling: ')
@@ -101,6 +100,8 @@ time = int(input("So young creature, pick a number, any number and we\'ll decide
 print(name)
 print(age)
 
-Amina = destination(Galaxy)
+Amina = Galaxy(name, age, time, 0)
+#Amina = destination(Galaxy)
 Amina.flying()
 Amina.travel()
+
